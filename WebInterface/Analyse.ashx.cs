@@ -25,19 +25,23 @@ namespace Loowoo.LandAnalyst.WebInterface
 
         public void ProcessRequest(HttpContext context)
         {
-            var encoding = Encoding.GetEncoding("GB2312");
-            //using (var reader = new StreamReader(@"C:\Users\Ricepig\Documents\海宁项目\计划六\计划六\ca1309.dxf", encoding))
+            /*var encoding = Encoding.GetEncoding("GB2312");
             using (var reader = new StreamReader(@"C:\Users\Ricepig\Documents\海宁项目\计划六\计划六\hc1315.dxf", encoding))
             {
                 var content = reader.ReadToEnd();
-                var result = Process(content, @"C:\Users\Ricepig\Documents\海宁项目\haining.mdb");
+                var result = Process(content, context.Server.MapPath("~/App_Data/haining.mdb"));
                 context.Response.ContentType = "text/plain";
                 var serializer = new JavaScriptSerializer();
                 context.Response.Write(serializer.Serialize(result));
-            }
+            }*/
+
+            
+            var content = context.Request["file"];
+            var result = Process(content, context.Server.MapPath("~/App_Data/haining.mdb"));
+            context.Response.ContentType = "text/plain";
+            var serializer = new JavaScriptSerializer();
+            context.Response.Write(serializer.Serialize(result));
         }
-
-
 
         private ResultPack Process(string content, string mdbFile)
         {

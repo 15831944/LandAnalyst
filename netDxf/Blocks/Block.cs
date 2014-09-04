@@ -213,7 +213,7 @@ namespace netDxf.Blocks
             DxfDocument dwg;
             try 
             {
-                dwg = DxfDocument.Load(file);
+                dwg = DxfDocument.Load(file,false);
             }
             catch
             {
