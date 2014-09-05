@@ -82,7 +82,7 @@ namespace Loowoo.LandAnalyst.WebInterface
         {
             foreach (var pair in dict)
             {
-                pair.Value.Value = Math.Round(pair.Value.Value, 2);
+                pair.Value.Value = Math.Round(pair.Value.Value/10000, 4);
             }
         }
 
