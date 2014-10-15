@@ -261,7 +261,7 @@ namespace Loowoo.LandAnalyst.WebInterface
         private IList<IntersectRecord> Calc4DLTB(IPolygon polygon)
         {
             var cursor = dltbFC.Search(
-                new SpatialFilterClass() {Geometry = polygon, SpatialRel = esriSpatialRelEnum.esriSpatialRelOverlaps},
+                new SpatialFilterClass() {Geometry = polygon, SpatialRel = esriSpatialRelEnum.esriSpatialRelIntersects},
                 false);
 
             var pg5 = (IPolygon4) polygon;

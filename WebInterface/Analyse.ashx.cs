@@ -26,7 +26,7 @@ namespace Loowoo.LandAnalyst.WebInterface
         public void ProcessRequest(HttpContext context)
         {
             /*var encoding = Encoding.GetEncoding("GB2312");
-            using (var reader = new StreamReader(@"C:\Users\Ricepig\Documents\海宁项目\计划六\计划六\hc1315.dxf", encoding))
+            using (var reader = new StreamReader(@"C:\Temp\yg1407.dxf", encoding))
             {
                 var content = reader.ReadToEnd();
                 var result = Process(content, context.Server.MapPath("~/App_Data/haining.mdb"));
@@ -120,7 +120,6 @@ namespace Loowoo.LandAnalyst.WebInterface
                         {
                             calculator.xzdwFC = ws.OpenFeatureClass(ConfigurationManager.AppSettings["LXDWLayerName"]);
                         }
-
 
 
                         var pg = calculator.GeneratePolygon(dxf.LwPolylines[0]);
