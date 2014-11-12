@@ -26,7 +26,8 @@ namespace Loowoo.LandAnalyst.WebInterface
         public void ProcessRequest(HttpContext context)
         {
             /*var encoding = Encoding.GetEncoding("GB2312");
-            using (var reader = new StreamReader(@"C:\Temp\yg1407.dxf", encoding))
+            //using (var reader = new StreamReader(@"C:\Temp\yg1407.dxf", encoding))
+            using (var reader = new StreamReader(@"C:\Users\Ricepig\Desktop\HC1326红线.dxf", encoding))
             {
                 var content = reader.ReadToEnd();
                 var result = Process(content, context.Server.MapPath("~/App_Data/haining.mdb"));
