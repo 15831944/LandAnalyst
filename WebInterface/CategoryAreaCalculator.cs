@@ -4,6 +4,7 @@ using ESRI.ArcGIS.Geometry;
 using netDxf.Entities;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -44,10 +45,11 @@ namespace Loowoo.LandAnalyst.WebInterface
             var pg = new PolygonClass();
             var pc = (IPointCollection) pg;
             var o = Type.Missing;
-            foreach (var vertex in line.Vertexes)
+            var vertexes = line.PoligonalVertexes(int.Parse(ConfigurationManager.AppSettings["BulgePrecision"]), double.Parse(ConfigurationManager.AppSettings["WeldThreshold"]), double.Parse(ConfigurationManager.AppSettings["BulgeThreshold"]));
+            foreach (var vertex in vertexes)
             {
                 var pt = new PointClass();
-                pt.PutCoords(vertex.Location.X, vertex.Location.Y);
+                pt.PutCoords(vertex.X, vertex.Y);
                 pc.AddPoint(pt, ref o, ref o);
             }
 
